@@ -35,8 +35,23 @@
             function displayAnimalGif() {
                 
                 var animal = $(this).attr("data-name");
-                
+                var queryURL = "https://api.giphy.com/v1/gifs/search" + animals + "&apikey=trilogy";
 
+                $.ajax({
+                    url: queryURL,
+                    method: "GET"
+                }).then(function(response) {
+                    $("#buttons-view").text(JSON.stringify(response));
+                });
+            }
+
+            function renderButtons() {
+
+                $("buttons-view").empty();
+
+                for (var i = 0; i < animals.length; i++) {
+                    
+                }
             }
         </script>
     </div>
